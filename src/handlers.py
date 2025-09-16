@@ -60,7 +60,7 @@ async def get_reminder_date(
     else:
         if d.timestamp() < time.time():
             await message.answer(
-                "This is already happened! Try entering another date!"
+                "This has already happened! Try entering another date!"
             )
             return
         await message.answer(f"Good! I will remind you on {d}.")

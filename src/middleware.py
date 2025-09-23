@@ -3,13 +3,12 @@ import sqlite3
 
 
 class DBMiddleware(BaseMiddleware):
-    def __init__(self, db_name: str = "reminders"):
-        self.db_name = db_name
-        self.file_name = f"{self.db_name}.db"
+    def __init__(self, file_name: str = "db.sqlite3"):
+        self.file_name = file_name
         self.con = sqlite3.connect(self.file_name)
         cur = self.con.cursor()
         cur.execute(
-            """ CREATE TABLE IF NOT EXISTS
+            """CREATE TABLE IF NOT EXISTS
             reminders (
             id INTEGER PRIMARY KEY,
             user_id INTEGER,

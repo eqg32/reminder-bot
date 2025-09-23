@@ -7,7 +7,7 @@ import os
 
 
 async def start_reminders_polling(bot: Bot):
-    con = sqlite3.connect("reminders.db")
+    con = sqlite3.connect("db.sqlite3")
     cur = con.cursor()
     while True:
         reminders = cur.execute(
